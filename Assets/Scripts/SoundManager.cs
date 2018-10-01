@@ -8,12 +8,12 @@ public class SoundManager : MonoBehaviour {
 
     public AudioSource S1, S2;
 
-    
+    GameSession s1;
 
     // Use this for initialization
     void Start () {
-
-      
+        s1 = FindObjectOfType<GameSession>();
+     
     }
 
 	// Update is called once per frame
@@ -58,24 +58,28 @@ public class SoundManager : MonoBehaviour {
         S1.Play();
 
 
-
-        //S2.clip = clip_A4;
-        //S2.PlayDelayed(S1.clip.length);
-        
-        
-        //yield return new WaitForSeconds(AudioObject.clip.length);
-        //AudioObject.clip = clip_D4;
-        //AudioObject.Play();
-
     }
+
+    public void PlayOriginal() {
+        //Check level here
+        Debug.Log(s1.level);
+        if (s1.level == 1)
+        {
+            S1.clip = clip_C4;
+            S2.clip = clip_C4;
+          
+            S1.Play();
+            S2.PlayDelayed(S1.clip.length - 1);
+        }
+    }
+
     IEnumerator playEngineSound() {
+        
+            S1.Play();
 
-        S1.Play();
-       
-        yield return new WaitForSeconds(S1.clip.length);
-        S1.clip = clip_D4;
-        S1.Play();
+            yield return new WaitForSeconds(S1.clip.length);
+            S1.clip = clip_D4;
+            S1.Play();
+        }
     }
 
-
-}
