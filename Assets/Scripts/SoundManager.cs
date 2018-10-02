@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
+    // singleton instanct
+    public static SoundManager instance;
 
     public AudioClip clip_C4, clip_D4, clip_E4, clip_F4, clip_G4, clip_A4, clip_B4, clip_C5;
 
@@ -11,6 +13,11 @@ public class SoundManager : MonoBehaviour {
     GameSession s1;
 
     // Use this for initialization
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start () {
         s1 = FindObjectOfType<GameSession>();
      
@@ -56,8 +63,6 @@ public class SoundManager : MonoBehaviour {
       //  StartCoroutine(playEngineSound());
      
         S1.Play();
-
-
     }
 
     public void PlayOriginal() {

@@ -61,8 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BaseNote.cs" />
     <Compile Include="Assets\Scripts\GameSession.cs" />
+    <Compile Include="Assets\Scripts\NoteColumn.cs" />
+    <Compile Include="Assets\Scripts\NoteSlot.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\TrebelManager.cs" />
     <Compile Include="Assets\Scripts\UIEffects.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/u1091197/Documents/GitWorkSpace/MusicEducation/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
