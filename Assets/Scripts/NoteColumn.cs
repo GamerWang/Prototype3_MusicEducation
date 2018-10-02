@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class NoteColumn : MonoBehaviour {
     // editable properties
     public GameObject noteSlotPrefab;
-
     public int _noteInterval = 25;
 
     // public references & variables
     public int _columnID { get; set; }
     public List<GameObject> noteSlotList { get; set; }
+    public TrebleNoteType _currenetNoteType { get; set; }
+
     // private references & variables
     int _noteCount = 8;
 
@@ -21,10 +22,28 @@ public class NoteColumn : MonoBehaviour {
         return TrebleNoteType._Default;
     }
 
+    public void ResetAllNotes()
+    {
+        if(noteSlotList!= null)
+        {
+            foreach(var n in noteSlotList)
+            {
+                var s = n.GetComponent<NoteSlot>();
+                s.Reset();
+            }
+        }
+    }
+
+    public void SetCurrentNote(TrebleNoteType t)
+    {
+        _currenetNoteType = t;
+    }
+
     // customize initialization
     public void Init(int id = -1)
     {
         _columnID = id;
+        _currenetNoteType = TrebleNoteType._Default;
 
         if(noteSlotList == null)
         {
@@ -49,9 +68,10 @@ public class NoteColumn : MonoBehaviour {
                 newSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, i * _noteInterval);
 
                 var slot = newSlot.GetComponent<NoteSlot>();
-                slot.Init((TrebleNoteType)i);
+                slot.Init(this, (TrebleNoteType)i);
 
                 newSlot.SetActive(true);
+                noteSlotList.Add(newSlot);
             }
         }
     }

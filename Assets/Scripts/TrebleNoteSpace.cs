@@ -46,6 +46,8 @@ public class TrebleNoteSpace : MonoBehaviour {
                 column.Init(i);
 
                 newColumn.SetActive(true);
+
+                columnList.Add(newColumn);
             }
         }
     }
@@ -59,4 +61,19 @@ public class TrebleNoteSpace : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    // Functions for debugging
+    public void TEMP_PrintOutNotes()
+    {
+        var noteString = "";
+        if (columnList != null)
+        {
+            foreach(var c in columnList)
+            {
+                noteString += c.GetComponent<NoteColumn>()._currenetNoteType;
+                noteString += ',';
+            }
+        }
+        DebugCanvas._PrintText(noteString);
+    }
 }
