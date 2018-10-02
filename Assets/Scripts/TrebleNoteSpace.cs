@@ -63,7 +63,7 @@ public class TrebleNoteSpace : MonoBehaviour {
 	}
 
     // Functions for debugging
-    public void TEMP_PrintOutNotes()
+    public string TEMP_PrintOutNotes()
     {
         var noteString = "";
         if (columnList != null)
@@ -75,5 +75,21 @@ public class TrebleNoteSpace : MonoBehaviour {
             }
         }
         DebugCanvas._PrintText(noteString);
+        return noteString;
+    }
+
+    public string sendTestNotes()
+    {
+        var noteString = "";
+        if (columnList != null)
+        {
+            foreach (var c in columnList)
+            {
+                noteString += c.GetComponent<NoteColumn>()._currenetNoteType;
+                noteString += ',';
+            }
+        }
+
+        return noteString;
     }
 }
