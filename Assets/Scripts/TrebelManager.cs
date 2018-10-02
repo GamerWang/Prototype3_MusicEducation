@@ -7,8 +7,10 @@ public class TrebelManager : MonoBehaviour {
     // Singleton instance
     public static TrebelManager instance;
 
-    // public references & variables
+    // editable properties
     public GameObject movingNote;
+
+    // public references & variables
     // private references & variables
     bool isDraggingNote = false;
     

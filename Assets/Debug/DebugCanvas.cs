@@ -7,9 +7,10 @@ public class DebugCanvas : MonoBehaviour {
     // singleton instance
     public static DebugCanvas instance;
 
-    // public references & variables
+    // editable properties
     public Text debugText;
 
+    // public references & variables
     // public functions
     public static void _PrintText(string str)
     {
