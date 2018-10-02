@@ -22,9 +22,6 @@ public class TrebelManager : MonoBehaviour {
             isDraggingNote = true;
             // DEBUG
             SoundManager.instance.PlaySingleKey("C4");
-            Debug.Log("TrebelManager: DragStart: " + Time.fixedTime);
-            //DebugCanvas.instance.PrintText("TrebelManager: DragStart: " + Time.fixedTime);
-            //DebugCanvas._PrintText("TrebelManager: DragStart: " + Time.fixedTime);
         }
     }
 
@@ -44,6 +41,8 @@ public class TrebelManager : MonoBehaviour {
     {
         if (isDraggingNote && movingNote != null)
         {
+            var note = movingNote.GetComponent<MovingNote>();
+
             if (Input.touchCount > 0 || Input.GetMouseButton(0))
             {
                 movingNote.SetActive(true);
@@ -58,11 +57,15 @@ public class TrebelManager : MonoBehaviour {
             }
             else
             {
+                if (note.hitSlot)
+                {
+                    note.slotCollider.GetComponent<NoteSlot>().Drop();
+                }
+
                 isDraggingNote = false;
                 movingNote.SetActive(false);
                 // DEBUG
                 SoundManager.instance.PlaySingleKey("C5");
-                Debug.Log("TrebelManager: DragEnd: " + Time.fixedTime);
             }
         }
     }
