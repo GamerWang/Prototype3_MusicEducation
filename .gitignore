@@ -3,5 +3,5 @@ Library
 Packages
 Temp
 *.sln
-
+*.csproj
 _LocalAssets
