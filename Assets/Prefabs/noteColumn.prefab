@@ -57,6 +57,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteSlotPrefab: {fileID: 1287748824598380, guid: 51a49a4a41eeba04582b016ce91b2906,
     type: 2}
+  _noteInterval: 40
 --- !u!114 &114953054988415684
 MonoBehaviour:
   m_ObjectHideFlags: 1

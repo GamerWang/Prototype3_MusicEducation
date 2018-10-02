@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotSprite: {fileID: 1742179827507476}
+  noteTexture: {fileID: 21300000, guid: b61369acdb19ac2418ea55dbb9fe7383, type: 3}
 --- !u!114 &114813513066270626
 MonoBehaviour:
   m_ObjectHideFlags: 1

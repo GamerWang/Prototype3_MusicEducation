@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class NoteSlot : MonoBehaviour {
     // editable properties
     public GameObject slotSprite;
+    public Sprite noteTexture;
 
     // public references & variables
     public TrebleNoteType noteType { get; set; }
@@ -23,8 +24,11 @@ public class NoteSlot : MonoBehaviour {
         }
         if(slotSprite != null)
         {
-            slotSprite.transform.localScale = new Vector3(2, 2, 2);
-            slotSprite.GetComponent<Image>().color = new Color(255, 0, 255);
+            slotSprite.transform.localScale = new Vector3(15, 15, 1);
+            var img = slotSprite.GetComponent<Image>();
+            img.color = new Color(255, 0, 255);
+            img.sprite = noteTexture;
+            slotSprite.GetComponent<RectTransform>().anchoredPosition = new Vector2(5, 42);
         }
     }
 
@@ -33,7 +37,10 @@ public class NoteSlot : MonoBehaviour {
         if (slotSprite != null)
         {
             slotSprite.transform.localScale = Vector3.one;
-            slotSprite.GetComponent<Image>().color = Color.gray;
+            var img = slotSprite.GetComponent<Image>();
+            img.color = Color.gray;
+            img.sprite = null;
+            slotSprite.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         }
     }
 
