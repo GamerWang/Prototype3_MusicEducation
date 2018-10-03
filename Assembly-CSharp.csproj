@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\FreeMode\FreeModeKey.cs" />
     <Compile Include="Assets\Scripts\FreeMode\FreeModeStaffSpace.cs" />
     <Compile Include="Assets\Scripts\GameSession.cs" />
+    <Compile Include="Assets\Scripts\MeasureControl.cs" />
     <Compile Include="Assets\Scripts\MovingNote.cs" />
     <Compile Include="Assets\Scripts\NoteColumn.cs" />
     <Compile Include="Assets\Scripts\NoteSlot.cs" />
