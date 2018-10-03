@@ -6,9 +6,9 @@ public class SoundManager : MonoBehaviour {
     // singleton instanct
     public static SoundManager instance;
 
-    public AudioClip clip_C4, clip_D4, clip_E4, clip_F4, clip_G4, clip_A4, clip_B4, clip_C5;
+    public AudioClip clip_C4, clip_D4, clip_E4, clip_F4, clip_G4, clip_A4, clip_B4, clip_C5, Error;
 
-    public AudioSource S1, S2;
+    public AudioSource S1, S2, S3, S4, ErrorS;
 
     GameSession s1;
 
@@ -20,7 +20,6 @@ public class SoundManager : MonoBehaviour {
 
     void Start () {
         s1 = FindObjectOfType<GameSession>();
-     
     }
 
 	// Update is called once per frame
@@ -28,8 +27,16 @@ public class SoundManager : MonoBehaviour {
 		
 	}
 
+    public void PlayErrorClip() {
+        ErrorS.clip = Error;
+        ErrorS.Play();
+
+    }
+
    public void PlaySingleKey(string key)
     {
+        s1.UpdateKey(key);
+
         string keyCode = key;
 
         switch (keyCode)
@@ -72,9 +79,13 @@ public class SoundManager : MonoBehaviour {
         {
             S1.clip = clip_C4;
             S2.clip = clip_C4;
-          
+            S3.clip = clip_G4;
+            S4.clip = clip_G4;
+
             S1.Play();
             S2.PlayDelayed(S1.clip.length - 1);
+            S3.PlayDelayed(S2.clip.length*2 - 2);
+            S4.PlayDelayed(S3.clip.length*3 - 3);
         }
     }
 
