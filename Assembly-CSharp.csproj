@@ -61,13 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_LocalAssets\Debug\DebugCanvas.cs" />
-    <Compile Include="Assets\_LocalAssets\Refactor\FreeColumn.cs" />
-    <Compile Include="Assets\_LocalAssets\Refactor\FreeColumnWrapper.cs" />
-    <Compile Include="Assets\_LocalAssets\Refactor\FreeModeKey.cs" />
-    <Compile Include="Assets\_LocalAssets\Refactor\FreeModeStaffSpace.cs" />
+    <Compile Include="Assets\_Debug\DebugCanvas.cs" />
     <Compile Include="Assets\Scripts\BaseNote.cs" />
     <Compile Include="Assets\Scripts\Data\DataClass.cs" />
+    <Compile Include="Assets\Scripts\FreeMode\FreeColumn.cs" />
+    <Compile Include="Assets\Scripts\FreeMode\FreeColumnWrapper.cs" />
+    <Compile Include="Assets\Scripts\FreeMode\FreeModeKey.cs" />
+    <Compile Include="Assets\Scripts\FreeMode\FreeModeStaffSpace.cs" />
     <Compile Include="Assets\Scripts\GameSession.cs" />
     <Compile Include="Assets\Scripts\MovingNote.cs" />
     <Compile Include="Assets\Scripts\NoteColumn.cs" />
