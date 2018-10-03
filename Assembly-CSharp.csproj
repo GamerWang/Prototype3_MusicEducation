@@ -61,7 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Debug\DebugCanvas.cs" />
+    <Compile Include="Assets\_LocalAssets\Debug\DebugCanvas.cs" />
+    <Compile Include="Assets\_LocalAssets\Refactor\FreeColumn.cs" />
+    <Compile Include="Assets\_LocalAssets\Refactor\FreeColumnWrapper.cs" />
+    <Compile Include="Assets\_LocalAssets\Refactor\FreeModeKey.cs" />
+    <Compile Include="Assets\_LocalAssets\Refactor\FreeModeStaffSpace.cs" />
     <Compile Include="Assets\Scripts\BaseNote.cs" />
     <Compile Include="Assets\Scripts\Data\DataClass.cs" />
     <Compile Include="Assets\Scripts\GameSession.cs" />
