@@ -20,6 +20,21 @@ public class MeasureControl : MonoBehaviour {
 
     }
 
+    public void MoveBox2()
+    {
+        main.rectTransform.anchoredPosition = new Vector2(180,235);
+    }
+
+    public void MoveBox3()
+    {
+        main.rectTransform.anchoredPosition = new Vector2(-280, 38);
+    }
+
+    public void MoveBox4()
+    {
+        main.rectTransform.anchoredPosition = new Vector2(180, 38);
+    }
+
     // Use this for initialization
     void Start () {
        

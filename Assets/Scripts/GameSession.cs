@@ -12,7 +12,7 @@ public class GameSession : MonoBehaviour {
    private string[] keyCode = { " ", "C4", "C4", "G4", "G4", "A4", "A4", "G4", "F4", "F4", "E4", "E4", "D4", "D4", "C4" };
 
    public MeasureControl m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14;
-    
+    public MeasureControl box;
 	// Use this for initialization
 	void Start () {
 
@@ -33,8 +33,8 @@ public class GameSession : MonoBehaviour {
         m12 = GameObject.Find("12D").GetComponent<MeasureControl>();
         m13 = GameObject.Find("13D").GetComponent<MeasureControl>();
         m14 = GameObject.Find("14C").GetComponent<MeasureControl>();
-
-	}
+        box = GameObject.Find("M_Box").GetComponent<MeasureControl>();
+    }
 
     public void UpdateKey(string current)
     {
@@ -42,6 +42,8 @@ public class GameSession : MonoBehaviour {
         Debug.Log("Level :" + level);
         Debug.Log("Measure Levle :" + measureLevel);
         Debug.Log("Current Key : " + Current_Key);
+
+        box.EnableNote();
 
         //Controlling 1st Measure
         if (measureLevel == 1)
@@ -58,13 +60,13 @@ public class GameSession : MonoBehaviour {
 
         else if (measureLevel == 3)
         {
-            if (Current_Key == keyCode[3]) { m3.EnableNote(); measureLevel++;  }
+            if (Current_Key == keyCode[3]) { m3.EnableNote(); measureLevel++;  box.EnableNote(); }
             else { Failure(1); m3.ShowError(); measureLevel = 1; }
         }
 
         else if (measureLevel == 4)
         {
-            if (Current_Key == keyCode[4]) { m4.EnableNote(); measureLevel++; level++; }
+            if (Current_Key == keyCode[4]) { m4.EnableNote(); measureLevel++; level++; box.MoveBox2(); }
             else { Failure(1); m4.ShowError(); measureLevel = 1; }
         }
 
@@ -83,7 +85,7 @@ public class GameSession : MonoBehaviour {
 
         else if (measureLevel == 7)
         {
-            if (Current_Key == keyCode[7]) { m7.EnableNote(); measureLevel++; level++; }
+            if (Current_Key == keyCode[7]) { m7.EnableNote(); measureLevel++; level++; box.MoveBox3(); }
             else { Failure(2); m7.ShowError(); measureLevel = 5; }
         }
 
@@ -109,7 +111,7 @@ public class GameSession : MonoBehaviour {
 
         else if (measureLevel == 11)
         {
-            if (Current_Key == keyCode[11]) { m11.EnableNote(); measureLevel++; level++; }
+            if (Current_Key == keyCode[11]) { m11.EnableNote(); measureLevel++; level++; box.MoveBox4(); }
             else { Failure(3); m11.ShowError(); measureLevel = 8; }
         }
 
