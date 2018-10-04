@@ -6,9 +6,9 @@ public class SoundManager : MonoBehaviour {
     // singleton instanct
     public static SoundManager instance;
 
-    public AudioClip clip_C4, clip_D4, clip_E4, clip_F4, clip_G4, clip_A4, clip_B4, clip_C5;
+    public AudioClip clip_C4, clip_D4, clip_E4, clip_F4, clip_G4, clip_A4, clip_B4, clip_C5, Error;
 
-    public AudioSource S1, S2;
+    public AudioSource S1, S2, S3, S4, ErrorS;
 
     GameSession s1;
     TrebleNoteSpace t1;
@@ -21,8 +21,6 @@ public class SoundManager : MonoBehaviour {
 
     void Start () {
         s1 = FindObjectOfType<GameSession>();
-        t1 = FindObjectOfType<TrebleNoteSpace>();
-     
     }
 
 	// Update is called once per frame
@@ -30,84 +28,16 @@ public class SoundManager : MonoBehaviour {
 		
 	}
 
-    public void PlayTest() {
-        string s1 = t1.TEMP_PrintOutNotes();
 
-        string[] Individual = s1.Split(',');
-
-        switch (Individual[0])
-        {
-            default:
-                S1.clip = clip_D4;
-                break;
-
-            case "C4":
-                S1.clip = clip_C4;
-                break;
-            case "D4":
-                S1.clip = clip_D4;
-                break;
-            case "E4":
-                S1.clip = clip_E4;
-                break;
-            case "F4":
-                S1.clip = clip_F4;
-                break;
-            case "G4":
-                S1.clip = clip_G4;
-                break;
-            case "A4":
-                S1.clip = clip_A4;
-                break;
-            case "B4":
-                S1.clip = clip_B4;
-                break;
-            case "C5":
-                S1.clip = clip_C5;
-                break;
-
-        }
-
-        switch (Individual[1])
-        {
-
-            default:
-                S2.clip = clip_D4;
-                break;
-
-            case "C4":
-                S2.clip = clip_C4;
-                break;
-            case "D4":
-                S2.clip = clip_D4;
-                break;
-            case "E4":
-                S2.clip = clip_E4;
-                break;
-            case "F4":
-                S2.clip = clip_F4;
-                break;
-            case "G4":
-                S2.clip = clip_G4;
-                break;
-            case "A4":
-                S2.clip = clip_A4;
-                break;
-            case "B4":
-                S2.clip = clip_B4;
-                break;
-            case "C5":
-                S2.clip = clip_C5;
-                break;
-        }
-
-        S1.Play();
-        S2.PlayDelayed(S1.clip.length - 1);
-
+    public void PlayErrorClip() {
+        ErrorS.clip = Error;
+        ErrorS.Play();
     }
 
    public void PlaySingleKey(string key)
     {
+        s1.UpdateKey(key);
+
         string keyCode = key;
 
         switch (keyCode)
@@ -150,9 +80,13 @@ public class SoundManager : MonoBehaviour {
         {
             S1.clip = clip_C4;
             S2.clip = clip_C4;
-          
+            S3.clip = clip_G4;
+            S4.clip = clip_G4;
+
             S1.Play();
             S2.PlayDelayed(S1.clip.length - 1);
+            S3.PlayDelayed(S2.clip.length*2 - 2);
+            S4.PlayDelayed(S3.clip.length*3 - 3);
         }
     }
 

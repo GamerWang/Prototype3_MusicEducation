@@ -6,17 +6,16 @@ using UnityEngine.UI;
 public class UIEffects : MonoBehaviour {
 
 
-    public Image Key, Treble_pos;
+    public Image Key;
+    public Sprite Up, Down;
 
     public void ChangeColor()
     {
-        Key.color = Color.green;
-        Treble_pos.color = Color.black;
+        Key.sprite = Down;
     }
     public void revertChangeColor()
     {
-        Key.color = Color.white;
-        Treble_pos.color = Color.white;
+        Key.sprite = Up;
     }
 
 

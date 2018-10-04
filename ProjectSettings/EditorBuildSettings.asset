@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SceneAfterDrag&Drop.unity
     guid: 2ec8483d8ed24034abfe1f269cd41908
+  - enabled: 1
+    path: Assets/_LocalAssets/RebuildScene.unity
+    guid: 78af05cd184362c4b9eba8b1f9caa784
   m_configObjects: {}
