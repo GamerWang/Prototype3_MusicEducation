@@ -13,6 +13,8 @@ public class GameSession : MonoBehaviour {
 
    public MeasureControl m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14;
     public MeasureControl box;
+
+    public TextEffects m1_text, m2_text, m3_text, m4_text, winText;
 	// Use this for initialization
 	void Start () {
 
@@ -34,6 +36,35 @@ public class GameSession : MonoBehaviour {
         m13 = GameObject.Find("13D").GetComponent<MeasureControl>();
         m14 = GameObject.Find("14C").GetComponent<MeasureControl>();
         box = GameObject.Find("M_Box").GetComponent<MeasureControl>();
+
+        m1_text = GameObject.Find("Measure_1").GetComponent<TextEffects>();
+        m2_text = GameObject.Find("Measure_2").GetComponent<TextEffects>();
+        m3_text = GameObject.Find("Measure_3").GetComponent<TextEffects>();
+        m4_text = GameObject.Find("Measure_4").GetComponent<TextEffects>();
+        winText = GameObject.Find("WinText").GetComponent<TextEffects>();
+
+        winText.windisable();
+    }
+
+    private void Update()
+    {
+        if (level == 1)
+        {
+             m1_text.changeColorText();
+        }
+        else if (level == 2)
+        {
+            m2_text.changeColorText();
+        }
+        else if (level == 3)
+        {
+            m3_text.changeColorText();
+        }
+        else if (level == 4)
+        {
+            m4_text.changeColorText();
+        }
+
     }
 
     public void UpdateKey(string current)
@@ -48,6 +79,8 @@ public class GameSession : MonoBehaviour {
         //Controlling 1st Measure
         if (measureLevel == 1)
         {
+          
+
             if (Current_Key == keyCode[1]) { m1.EnableNote(); measureLevel++; }
             else { m1.ShowError(); }
         }
@@ -66,13 +99,15 @@ public class GameSession : MonoBehaviour {
 
         else if (measureLevel == 4)
         {
-            if (Current_Key == keyCode[4]) { m4.EnableNote(); measureLevel++; level++; box.MoveBox2(); }
+            if (Current_Key == keyCode[4]) { m4.EnableNote(); measureLevel++; level++; success(1); box.MoveBox2(); }
             else { Failure(1); m4.ShowError(); measureLevel = 1; }
         }
 
         //Controlliong 2nd Measure
         else if (measureLevel == 5)
         {
+           
+
             if (Current_Key == keyCode[5]) { m5.EnableNote(); measureLevel++; }
             else { m5.ShowError(); }
         }
@@ -85,7 +120,7 @@ public class GameSession : MonoBehaviour {
 
         else if (measureLevel == 7)
         {
-            if (Current_Key == keyCode[7]) { m7.EnableNote(); measureLevel++; level++; box.MoveBox3(); }
+            if (Current_Key == keyCode[7]) { m7.EnableNote(); measureLevel++; level++; success(2); box.MoveBox3(); }
             else { Failure(2); m7.ShowError(); measureLevel = 5; }
         }
 
@@ -93,6 +128,8 @@ public class GameSession : MonoBehaviour {
 
        else if (measureLevel == 8)
         {
+           
+
             if (Current_Key == keyCode[8]) { m8.EnableNote(); measureLevel++; }
             else { m8.ShowError(); }
         }
@@ -111,13 +148,15 @@ public class GameSession : MonoBehaviour {
 
         else if (measureLevel == 11)
         {
-            if (Current_Key == keyCode[11]) { m11.EnableNote(); measureLevel++; level++; box.MoveBox4(); }
+            if (Current_Key == keyCode[11]) { m11.EnableNote(); measureLevel++; level++; success(3); box.MoveBox4(); }
             else { Failure(3); m11.ShowError(); measureLevel = 8; }
         }
 
         //Controlliong 4th Measure
         else if (measureLevel == 12)
         {
+           
+
             if (Current_Key == keyCode[12]) { m12.EnableNote(); measureLevel++; }
             else { m12.ShowError(); }
         }
@@ -130,7 +169,7 @@ public class GameSession : MonoBehaviour {
 
         else if (measureLevel == 14)
         {
-            if (Current_Key == keyCode[14]) { m14.EnableNote(); measureLevel++; level++; }
+            if (Current_Key == keyCode[14]) { m14.EnableNote(); measureLevel++; level++; success(4); }
             else { Failure(4); m14.ShowError(); measureLevel = 12; }
         }
 
@@ -217,6 +256,8 @@ public class GameSession : MonoBehaviour {
         }
         if (lvl == 4)
         {
+            winText.WinEnable();
+
             m12.EnableNote();
             m13.EnableNote();
             m14.EnableNote();
