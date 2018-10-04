@@ -7,17 +7,35 @@ public class MeasureControl : MonoBehaviour {
 
     private Image main;
     public bool IsVisible;
+    public bool check = true;
 
     SoundManager sound;
 
-    private void OnEnable()
-    {
-        sound = FindObjectOfType<SoundManager>();
 
-        IsVisible = false;
+    public void start()
+    {
+
+        IsVisible = true;
         main = GetComponent<Image>();
         main.enabled = IsVisible;
+    }
 
+    private void OnEnable()
+    {
+        if (check)
+        {
+            sound = FindObjectOfType<SoundManager>();
+
+            IsVisible = false;
+            main = GetComponent<Image>();
+            main.enabled = IsVisible;
+            check = false;
+        }
+    }
+
+    public void defaultPos()
+    {
+        main.rectTransform.anchoredPosition = new Vector2(-265, 241);
     }
 
     public void MoveBox2()
@@ -35,11 +53,6 @@ public class MeasureControl : MonoBehaviour {
         main.rectTransform.anchoredPosition = new Vector2(180, 38);
     }
 
-    // Use this for initialization
-    void Start () {
-       
-      
-	}
 
     public void ShowError() {
         StartCoroutine(Example());

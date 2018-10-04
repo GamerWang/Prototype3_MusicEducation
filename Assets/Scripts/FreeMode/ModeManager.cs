@@ -32,13 +32,11 @@ public class ModeManager : MonoBehaviour {
     void Awake()
     {
         instance = this;
-        mode = "Free";
     }
 
 	void Start () {
-        playMode.SetActive(false);
-        freeMode.SetActive(true);
-	}
+        ToPlayMode();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -50,6 +48,8 @@ public class ModeManager : MonoBehaviour {
     {
         GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
         myButtonStyle.fontSize = 40;
+        
+
         if(GUI.Button(new Rect(Screen.width - 300, 50, 250, 150), "SwitchMode", myButtonStyle))
         {
             if(mode == "Play")

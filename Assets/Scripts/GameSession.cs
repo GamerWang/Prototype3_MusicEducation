@@ -136,6 +136,30 @@ public class GameSession : MonoBehaviour {
 
     }
 
+    public void Reset()
+    {
+        level = 1;
+        measureLevel = 1;
+
+        m1.DisableleNote();
+        m2.DisableleNote();
+        m3.DisableleNote();
+        m4.DisableleNote();
+        m5.DisableleNote();
+        m6.DisableleNote();
+        m7.DisableleNote();
+        m8.DisableleNote();
+        m9.DisableleNote();
+        m10.DisableleNote();
+        m11.DisableleNote();
+        m12.DisableleNote();
+        m13.DisableleNote();
+        m14.DisableleNote();
+
+        box.defaultPos();
+
+    }
+
     public void Failure(int lvl)
     {
         if (lvl == 1)
@@ -163,6 +187,40 @@ public class GameSession : MonoBehaviour {
             m12.DisableleNote();
             m13.DisableleNote();
             m14.DisableleNote();
+        }
+    }
+
+    public void success(int lvl)
+    {
+        if (lvl == 1)
+        {
+            m1.EnableNote();
+            m2.EnableNote();
+            m3.EnableNote();
+            m4.EnableNote();
+        }
+
+        if (lvl == 2)
+        {
+            m5.EnableNote();
+            m6.EnableNote();
+            m7.EnableNote();
+            
+        }
+
+        if (lvl == 3)
+        {
+            m8.EnableNote();
+            m9.EnableNote();
+            m10.EnableNote();
+            m11.EnableNote();
+        }
+        if (lvl == 4)
+        {
+            m12.EnableNote();
+            m13.EnableNote();
+            m14.EnableNote();
+            
         }
     }
 }
